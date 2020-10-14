@@ -9,6 +9,7 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
+const teamMembers = [];
 
 
 // Write code to use inquirer to gather information about the development team members,
@@ -34,4 +35,94 @@ const render = require("./lib/htmlRenderer");
 // object with the correct structure and methods. This structure will be crucial in order
 // for the provided `render` function to work! ```
 
+// const questions = [
+//     {
+//         type: "input",
+//         name: "name",
+//         message: "What is your name?"
+//     },
+//     {
+//         type: "input",
+//         name: "Id",
+//         message: "What is your Id?"
+//     },
+//     {
+//         type: "input",
+//         name: "email",
+//         message: "What is your email?"
+//     },
+//     {
+//         type: "list",
+//         name: "role",
+//         message: "What is your role?"
+//         choices: ["Manager", "Engineer", "Intern"]
+//     }
 
+
+// ]
+
+function appMenu() {
+    function createManager() {
+        inquirer.prompt([
+            {
+                type: "input",
+                name: "managerName",
+                message: "What is your name?"
+            },
+            {
+                type: "input",
+                name: "managerID",
+                message: "What is your Id?"
+            },
+            {
+                type: "input",
+                name: "managerEmail",
+                message: "What is your email?"
+            },
+            {
+                type: "input",
+                name: "managerOfficeNumber",
+                message: "What is your office number?"
+            }
+        ]).then(function (answers) {
+            const manager = new Manager(answers.managerName, answers.managerID, answers.managerEmail, answers.managerOfficeNumber)
+            teamMembers.push(manager);
+            createTeam();
+        })
+    }
+    function createTeam() {
+        inquirer.prompt([
+            {
+                type: "list",
+                name: "memberChoices",
+                message: "Which team member would you like to create?",
+                choices: ["Engineer", "Intern", "No more team members"]
+            }
+        ]).then(function (answer) {
+            switch (answer.memberChoices) {
+                case "Engineer":
+                    createEngineer();
+                    break;
+                case "Intern":
+                    createIntern();
+                    break;
+                default:
+                    builtTeam();
+            }
+        })
+
+    }
+    function createEngineer() {
+
+    }
+
+    function createIntern() {
+
+    }
+    function builtTeam() {
+
+    }
+    createManager();
+
+}
+appMenu();
