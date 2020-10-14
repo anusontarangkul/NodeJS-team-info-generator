@@ -32,7 +32,7 @@ node install
 
 You will answer prompts about your team. You start by answering questions about the manager. You can then add more team members consisting of engineers or interns for the team. Once your team is created. You will get a html site showing your entire team.
 
-!(screenshot)[./screenshot.png]
+![screenshot](./screenshot.png)
     
 ## License
             
@@ -41,8 +41,8 @@ This project is license under MIT.
 ## Contributors
     
 David Anusontarangkul
-[LinkedIn] (https://www.linkedin.com/in/anusontarangkul/)
-[Github] (https://github.com/anusontarangkul)
+[LinkedIn](https://www.linkedin.com/in/anusontarangkul/)
+[Github](https://github.com/anusontarangkul)
 
 ## Tests
 
